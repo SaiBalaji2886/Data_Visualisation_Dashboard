@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DataViz Dashboard — CSV Visualizer</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- PapaParse -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar closed" id="sidebarMenu">
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+
+    <div class="brand">
+      <div class="logo">📈</div>
+      <h2>DataViz</h2>
+      <p class="tag">Turn CSV into insights</p>
+    </div>
+
+    <div class="guide">
+      <h3>User Guide</h3>
+      <ol>
+        <li>Upload or drag & drop a CSV.</li>
+        <li>Select X & Y values.</li>
+        <li>Click Render to generate charts.</li>
+      </ol>
+
+      <h4>Tips</h4>
+      <ul>
+        <li>Y-axis must be numeric</li>
+        <li>Pie chart shows top 5 values</li>
+        <li>Use search to filter rows</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <small>“Data becomes powerful when it tells a story.”</small>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <h1 class="header-title">Dynamic Data Visualization Dashboard</h1>
+      <p class="subtitle">Upload data, pick columns, get instant charts</p>
+
+      <div class="header-buttons">
+        <button id="darkToggle" class="btn-theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- WELCOME BLOCK -->
+    <section class="content welcome-block">
+      <h2>Welcome to DataViz Dashboard</h2>
+      <p>Start by uploading a CSV to visualize your data.</p>
+
+      <button id="uploadCSVWelcome" class="small-btn">Upload CSV</button>
+      <span id="csvFileName" style="margin-left:10px; font-size:14px; opacity:0.8;"></span>
+
+      <!-- Hidden file input for welcome block -->
+      <input type="file" id="csvMainInput" accept=".csv" style="display:none">
+    </section>
+
+    <!-- CHARTS SECTION -->
+    <section class="chart-section">
+      <div class="selectors-row">
+        <label>
+          X-axis:
+          <select id="xSelect">
+            <option value="">— choose —</option>
+          </select>
+        </label>
+
+        <label>
+          Y-axis:
+          <select id="ySelect">
+            <option value="">— choose —</option>
+          </select>
+        </label>
+
+        <button id="renderBtn" class="small-btn">Render</button>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Line Chart</h3>
+          <canvas id="lineChart"></canvas>
+          <button class="download small-btn" data-canvas="lineChart">Download PNG</button>
+        </div>
+
+        <div class="chart-card">
+          <h3>Bar Chart</h3>
+          <canvas id="barChart"></canvas>
+          <button class="download small-btn" data-canvas="barChart">Download PNG</button>
+        </div>
+
+        <div class="chart-card">
+          <h3>Pie Chart (Top 5)</h3>
+          <canvas id="pieChart"></canvas>
+          <button class="download small-btn" data-canvas="pieChart">Download PNG</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA PREVIEW -->
+    <section class="data-preview">
+      <div class="data-header">
+        <h3>Data Preview</h3>
+
+        <div class="preview-actions">
+          <input id="searchInput" type="text" placeholder="Search table..." />
+          <button id="downloadCSV" class="small-btn">Download CSV</button>
+        </div>
+      </div>
+
+      <div class="table-wrap" id="tableWrap">
+        <p class="muted">No data loaded. Upload a CSV from the welcome section or sidebar.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>By <strong>Sai Balaji Kallagunta</strong></p>
+    </footer>
+  </main>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
