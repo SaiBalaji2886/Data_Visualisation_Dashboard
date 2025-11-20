@@ -1,9 +1,7 @@
-````markdown
+
 # DataViz Dashboard — CSV Visualizer
 
 **DataViz Dashboard** is a dynamic web application that allows users to upload CSV files and visualize their data through interactive charts. It is built using **HTML, CSS, and JavaScript**, leveraging **Chart.js** for chart rendering and **PapaParse** for CSV parsing.
-
----
 
 ## Features
 
@@ -22,7 +20,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/dataviz-dashboard.git
+git clone https://github.com/SaiBalaji2886/Data_Visualisation_Dashboard.git
 ````
 
 2. Open `index.html` in your web browser.
