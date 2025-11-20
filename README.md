@@ -50,12 +50,6 @@ No backend setup required; this is a **purely front-end project**.
 
 ---
 
-## Screenshots
-
-*(Include screenshots of the dashboard here)*
-
----
-
 ## Future Enhancements
 
 * Support for multiple CSV uploads.
